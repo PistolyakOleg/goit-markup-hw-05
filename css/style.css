@@ -66,10 +66,8 @@ p {
   display: flex;
   align-items: center;
 }
-.page-header {
+.portfolio {
   border-bottom: 1px solid #ececec;
-  padding-top: 25px;
-  padding-bottom: 25px;
 }
 .site-nav .link {
   color: var(--Primary-text-color);
@@ -78,6 +76,21 @@ p {
   line-height: 1.14;
   letter-spacing: 0.02em;
   display: block;
+  position: relative;
+  padding-top: 32px;
+  padding-bottom: 32px;
+}
+
+.site-nav .current-page::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 4px;
+  background-color: var(--accent-color);
+  border-radius: 2px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
 }
 .site-nav {
   display: flex;
@@ -92,6 +105,7 @@ p {
 .site-nav .link:hover,
 .site-nav .link:focus {
   color: var(--accent-color);
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 /* КОНТАКТИ НАВІГАЦІЯ */
 
@@ -109,6 +123,7 @@ p {
 .contacts .link:focus {
   color: var(--accent-color);
   fill: var(--accent-color);
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .contacts {
@@ -184,6 +199,7 @@ p {
 .button-hero:hover,
 .button-hero:focus {
   background-color: var(--accent-hover-color);
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .hero-title-button {
   margin-bottom: 200px;
@@ -235,6 +251,29 @@ p {
   display: flex;
   gap: 30px;
 }
+
+.thumb-what-we-do {
+  position: relative;
+}
+.thumb-what-we-do .label {
+  position: absolute;
+  width: 100%;
+  height: 70px;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: rgba(47, 48, 58, 0.8);
+  font-family: 'Roboto';
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.14;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--white-text-color);
+}
+
 .section {
   padding-bottom: 94px;
 }
@@ -306,6 +345,7 @@ p {
   border-radius: 50%;
   background-color: #188ce8;
   fill: var(--white-text-color);
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* ПАРАГРАФИ */
@@ -346,6 +386,7 @@ p {
 .clients-link:focus {
   fill: var(--accent-hover-color);
   border-color: var(--accent-hover-color);
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 /* КОНТАКТИ ФУТЕР */
 .page-footer {
@@ -372,6 +413,7 @@ p {
 .whitetext:hover,
 .whitetext:focus {
   color: var(--accent-color);
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .contacts-footer .text {
   color: rgba(255, 255, 255, 0.6);
@@ -388,6 +430,7 @@ p {
 .contacts-footer .text:hover,
 .contacts-footer .text:focus {
   color: var(--accent-color);
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .page-footer {
   padding-top: 60px;
@@ -441,6 +484,7 @@ p {
   border-radius: 50%;
   background-color: #188ce8;
   fill: var(--white-text-color);
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* ПОРТФОЛІО СТОРІНКА */
@@ -463,6 +507,7 @@ p {
   background-color: var(--accent-color);
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
     0px 2px 2px rgba(0, 0, 0, 0.12);
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .button-filter:active {
@@ -471,7 +516,6 @@ p {
 }
 /* Портфоліо  */
 
-}
 .section-portfolio img {
   display: block;
 }
@@ -510,6 +554,38 @@ p {
   gap: 30px;
 }
 
+.thumb-portfolio {
+  position: relative;
+  overflow: hidden;
+}
+
+.thumb-text {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  display: flex;
+  align-items: center;
+  padding: 0px 24px;
+
+  font-size: 18px;
+  line-height: 1.56;
+  letter-spacing: 0.03em;
+  background-color: rgba(33, 150, 243, 0.9);
+
+  opacity: 0;
+  transform: translateY(100%);
+}
+
+.portfolio-item .list:hover .thumb-text {
+  opacity: 1;
+  transform: translateY(0);
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.thumb-text p {
+  color: var(--white-text-color);
+}
 .portfolio-item .list {
   background: #ffffff;
   border: 1px solid #eeeeee;
@@ -520,10 +596,59 @@ p {
   display: flex;
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .item-text {
   padding-left: 24px;
   padding-top: 20px;
   padding-bottom: 20px;
   padding-right: 24px;
+}
+/* МОДАЛЬНЕ ВІКНО */
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  opacity: 1;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.backdrop.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(0, 9);
+}
+.modal {
+  position: absolute;
+  min-height: 581px;
+  min-width: 528px;
+  top: 50%;
+  left: 50%;
+  background: var(--white-text-color);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+
+  transform: translate(-50%, -50%) scale(1);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.button-modal-close {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  width: 32px;
+  height: 32px;
+  top: 8px;
+  right: 8px;
+  background-color: var(--white-text-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
 }
